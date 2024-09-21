@@ -8,9 +8,8 @@ public class Salary {
         boolean Tagain=true;
         int choice,choice2;
         int ArrLim=0, v234=0, Employee;
-        double Tgross=0, Tred=0, Tnet=0;
         
-        Salaries[] s2 =null;
+        Salaries[] s2 = null;
         
         
         System.out.println("+-----------------------------------------------------------");
@@ -78,15 +77,16 @@ public class Salary {
                                 while(true){
                                     duplicatedID=false;
                                     System.out.print("|\tID: ");
-                                    id = input.next();
+                                    String getID = input.next();
                                     for(int i=0; i<v234; i++){
-                                        if(s2[i].id.equals(id)){
-                                            System.out.println("\t!!!ID *"+id+"* Already Exist!!!\nTry Again: ");
+                                        if(s2[i].id.equals(getID)){
+                                            System.out.println("\t!!!ID *"+getID+"* Already Exist!!!\nTry Again: ");
                                             duplicatedID=true;
                                             break;
                                         }
                                     }
                                     if(!duplicatedID){
+                                        id=getID;
                                         break;
                                     }
                                 }
@@ -101,12 +101,8 @@ public class Salary {
                                 System.out.println("+-----------------------------------------------------------");
                                 double gross = rh*hw;
                                 double net = gross-rd;
-                                Tgross += gross;
-                                Tred += rd;
-                                Tnet += net;
-                                s2[x]=new Salaries();
-                                s2[x].info(id, name, rh, rd, gross, net, hw);
-                                s2[x].info2(Tgross, Tred, Tnet);
+                                s2[v234]=new Salaries();
+                                s2[v234].info(id, name, rh, rd, gross, net, hw);
                                 v234+=1;
                             }
                         break;
@@ -114,11 +110,21 @@ public class Salary {
                 break;
                 
                 case 2:
+                    System.out.println("+-----------------------------------------------------------");
                     System.out.printf("|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|", "ID", "Name", "Rate", "Hours", "Gross", "Reduction", "NetPay");
+                    double Tgross=0, Tnet=0, Tred=0;
                     for(int x=0; x<v234; x++){
+                        Tgross+=s2[x].Tgross;
+                        Tnet+=s2[x].Tnet;
+                        Tred+=s2[x].Tred;
                         s2[x].view();
                     }
-                    System.out.println("");
+                    System.out.println("\n+-----------------------------------------------------------");
+                    System.out.println("Total Salary Request: "+Tgross);
+                    System.out.println("Total Employee Reduction: "+Tred);
+                    System.out.println("Total Net Pay: "+Tnet);
+                    System.out.println("Total No. Employee: "+v234);
+                    System.out.println("+-----------------------------------------------------------");
                 break;
                 
                 case 3:
