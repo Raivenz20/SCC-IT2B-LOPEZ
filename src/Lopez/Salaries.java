@@ -3,7 +3,7 @@ public class Salaries {
     String id, name;
     double rh,rd,gross,net,Tgross,Tred,Tnet;
     int hw,Tem;
-    public void info(String id1,String name1,double rh1,double rd1,double gross1,double net1,int hw1,double Tgross,double Tred,double Tnet,int Tem){
+    public void info(String id1,String name1,double rh1,double rd1,double gross1,double net1,int hw1){
         this.id=id1;
         this.name=name1;
         this.rh=rh1;
@@ -12,7 +12,19 @@ public class Salaries {
         this.net=net1;
         this.hw=hw1;
     }
+    public void info2(double Tgross1,double Tred1,double Tnet1){
+        this.Tgross=Tgross1;
+        this.Tred=Tred1;
+        this.Tnet=Tnet1;
+    }
     public void view(){
         System.out.printf("\n|%-10s|%-10s|%-10.2f|%-10d|%-10.2f|%-10.2f|%-10.2f|", this.id, this.name, this.rh, this.hw, this.gross, this.rd, this.net);
+    }
+    public void edit(String newId, String newName, double newRh, int newHw, double newRd, double newGross, double newNet) {
+        this.id = newId;
+        this.name = newName;
+        this.rh = newRh;
+        this.hw = newHw;
+        this.rd = newRd;
     }
 }
